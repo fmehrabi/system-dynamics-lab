@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "replace-with-stable-kebab-case-id",
+  "title": "Replace with model title",
+  "shortTitle": "Short model title",
+  "description": "Brief description of the system and what the learner can explore.",
+  "category": "Model category",
+  "status": "draft",
+  "version": "0.1.0",
+  "order": 100,
+  "page": "./models/replace-with-id/",
+  "sourceFile": "source.mdl",
+  "simulation": {
+    "initialTime": 0,
+    "finalTime": 100,
+    "timeStep": 1,
+    "integration": "Euler"
+  },
+  "tags": ["Vensim", "System Dynamics"],
+  "validation": {
+    "status": "not-verified",
+    "vensimComparison": false,
+    "notes": "Record unsupported constructs, assumptions and validation gaps here."
+  }
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="System Dynamics Lab — an interactive library of browser-based system dynamics models.">
+<meta property="og:title" content="System Dynamics Lab — Model Library"><meta property="og:description" content="Explore interactive system dynamics models, change parameters, and inspect dynamic behavior."><meta property="og:type" content="website">
+<title>System Dynamics Lab | Model Library</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./assets/library.css"><script defer src="./assets/library.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="./"><span class="brand-mark">S<span>∿</span></span><span class="brand-copy">SYSTEM DYNAMICS <b>LAB</b><small>INTERACTIVE MODEL LIBRARY</small></span></a>
+<nav><a class="active" href="./">Model Library</a><a href="#about">About the Lab</a></nav>
+<div class="header-actions"><span class="model-count" id="modelCount">LOADING MODELS</span><button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">◐ <span>Theme</span></button></div>
+</div></header>
+<main class="container">
+<section class="hero"><div class="eyebrow"><i></i> SYSTEM DYNAMICS / SIMULATION WORKSPACE</div><h1>Explore how <em>systems behave.</em></h1><p>A growing collection of interactive system dynamics models. Inspect stock–flow structures, adjust selected parameters, and observe how system behavior changes over time.</p>
+<div class="hero-meta"><span><b id="availableCount">01</b> AVAILABLE MODEL</span><span>INTERACTIVE SIMULATION</span><span>VENSIM-BASED MODELS</span></div></section>
+<section class="library-section" id="models"><div class="section-heading"><div><div class="section-kicker">MODEL CATALOGUE</div><h2>Available models</h2><p>Select a model to open its interactive workspace.</p></div><div class="filters"><label class="search"><span>⌕</span><input id="modelSearch" type="search" placeholder="Search models or topics…" aria-label="Search models"></label><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option></select></div></div>
+<div class="model-grid" id="modelGrid"><div class="loading-card">Loading model registry…</div></div><div class="empty-state" id="emptyState" hidden>No models match this search.</div>
+</section>
+<section class="architecture" id="about"><div class="architecture-icon">∿</div><div><div class="section-kicker">BUILT TO EXPAND</div><h2>One lab. Independent model packages.</h2><p>Each model is maintained in its own folder with its source file, simulation engine, model-specific interface, and manifest. New models can be added without redesigning the library or changing existing model workspaces.</p><div class="architecture-points"><span>01 / Shared visual system</span><span>02 / Isolated model packages</span><span>03 / Central model registry</span></div></div></section>
+<footer><span>© 2026 · System Dynamics Lab</span><span>Interactive browser-based model collection</span></footer>
+</main><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>

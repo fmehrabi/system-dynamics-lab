@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="#ffffff" name="theme-color"/>
+<meta content="Explore price, demand and supply adjustment with interactive system dynamics, nonlinear lookup editing, and live simulation charts. System Dynamics Lab by Farhad Mehrabi." name="description"/>
+<meta content="System Dynamics Lab — Demand, Supply &amp; Delay" property="og:title"/><meta content="A transparent, browser-based system dynamics lab by Farhad Mehrabi." property="og:description"/><meta content="website" property="og:type"/>
+<title>System Dynamics Lab | Demand, Supply &amp; Delay</title>
+<link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyNzhjYTgiLz48cGF0aCBkPSJNMTIgNDJDMjIgNDIgMjIgMTkgMzIgMTlTNDMgNDIgNTIgNDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSIxOSIgcj0iNCIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" rel="icon" type="image/svg+xml"/>
+<style>
+
+/* Original website visual identity retained for System Dynamics Lab. */
+:root{--page-bg:#fff;--surface:#fafafa;--surface-hover:#f2f8f9;--surface-accent:#eef6f8;--heading:#333;--heading-strong:#222;--text:#555;--text-soft:#666;--text-muted:#777;--border:#e8e8e8;--accent:#278ca8;--accent-hover:#1f7188;--focus-ring:rgba(39,140,168,.35);--card-shadow:rgba(0,0,0,.06);--stock:#d6f1f5;--stock-edge:#278ca8;--chart-grid:#e8edef;--canvas:#fff;--muted-ink:#a3adb1;--risk:#9c6629;--risk-bg:#fff8ed;--header-h:69px}
+html[data-theme=dark]{--page-bg:#111416;--surface:#181c1f;--surface-hover:#1d292e;--surface-accent:#183038;--heading:#e6eaec;--heading-strong:#f0f3f4;--text:#c6ced2;--text-soft:#aeb8bd;--text-muted:#8f9aa0;--border:#2b3338;--accent:#45a7c2;--accent-hover:#68bdd2;--focus-ring:rgba(69,167,194,.45);--card-shadow:rgba(0,0,0,.28);--stock:#213d46;--stock-edge:#45a7c2;--chart-grid:#273136;--canvas:#181c1f;--muted-ink:#839298;--risk:#e1b178;--risk-bg:#2c241a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--page-bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:13px;line-height:1.55;font-weight:400}button,input,select{font:inherit}button{cursor:pointer}a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-hover)}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--heading);letter-spacing:-.035em}h2{font-weight:660;font-size:18px;margin:0 0 4px}.topnav{height:var(--header-h);position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--page-bg),transparent 5%);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}.nav-inner{height:100%;width:100%;max-width:1900px;margin:auto;padding:0 31px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:11px;flex-shrink:0;color:var(--heading)!important}.brand-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--accent);border-radius:9px;color:var(--accent);font-size:17px;font-weight:850;letter-spacing:-.08em}.brand-icon span{font-size:22px;margin-left:1px;font-weight:400}.brand-text{line-height:1.18;letter-spacing:.025em;font-size:12px;font-weight:550;white-space:nowrap}.brand-text b{color:var(--accent);font-weight:750}.brand-text small{display:block;letter-spacing:.15em;font-size:8px;margin-top:4px;color:var(--text-muted);font-weight:700}.toplinks{display:flex;align-items:center;justify-content:center;gap:5px;flex:1}.toplinks a{padding:10px 12px;color:var(--text-soft);font-weight:550;white-space:nowrap;border-radius:6px;font-size:12px}.toplinks a:hover,.toplinks a.navactive{background:var(--surface-hover);color:var(--accent)}.topactions{display:flex;align-items:center;gap:10px}.model-count{font-size:10px;font-weight:750;letter-spacing:.09em;color:var(--text-muted);padding-right:7px;border-right:1px solid var(--border);white-space:nowrap}.theme-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:var(--page-bg);padding:8px 11px;border-radius:7px;font-weight:650;color:var(--text);font-size:11px;white-space:nowrap}.theme-button:hover{border-color:var(--accent);color:var(--accent)}.site-main{max-width:1900px;margin:auto;padding:0 28px}.headline{display:flex;justify-content:space-between;gap:30px;align-items:end;padding:37px 4px 25px}.eyebrow,.section-index{font-size:10px;letter-spacing:.105em;font-weight:770;color:var(--accent);line-height:1.5}.eyebrow{display:flex;gap:10px;align-items:center;margin-bottom:12px}.eyebrow-square{display:inline-block;width:7px;height:7px;border:2px solid var(--accent);transform:rotate(45deg)}h1{font-weight:690;font-size:clamp(24px,2.65vw,40px);line-height:1.12;letter-spacing:-.05em;margin-bottom:11px}h1 em{font-style:normal;color:var(--accent);font-weight:510}.headline p{max-width:740px;color:var(--text-soft);font-size:13px;margin:0}.headline-meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:350px}.headline-meta span{font-weight:700;letter-spacing:.035em;color:var(--text-muted);font-size:9px;border:1px solid var(--border);padding:7px 9px;border-radius:5px;white-space:nowrap}.headline-meta span.status{color:var(--accent);border-color:color-mix(in srgb,var(--accent),var(--border) 55%);background:var(--surface-accent)}.status i,.live-dot{width:6px;height:6px;border-radius:50%;display:inline-block;background:var(--accent);margin-right:6px;vertical-align:middle;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent),transparent 83%)}.workspace{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(385px,.82fr);align-items:start;gap:18px}.left-column{display:flex;flex-direction:column;gap:17px;min-width:0}.results-column{min-width:0;align-self:stretch}.chart-sticky{position:sticky;top:calc(var(--header-h) + 15px);max-height:calc(100vh - var(--header-h) - 27px);overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain}.panel{border:1px solid var(--border);background:var(--page-bg);border-radius:11px;box-shadow:0 3px 15px var(--card-shadow);overflow:hidden}.panel-head{display:flex;justify-content:space-between;align-items:start;gap:15px;padding:20px 21px 11px}.panel-head .section-index{margin-bottom:4px}.panel-head p{color:var(--text-muted);font-size:11px;line-height:1.55;margin:0}.small-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;border:1px solid var(--border);background:var(--surface);border-radius:6px;padding:8px 10px;font-weight:650;color:var(--text-soft);font-size:11px}.small-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--surface-hover)}.diagram-canvas{padding:0 15px 0;min-height:300px}.diagram-canvas svg{display:block;width:100%;height:auto;max-height:485px;overflow:visible}.diagram-footer{border-top:1px solid var(--border);padding:12px 19px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center}.legend{display:flex;gap:12px;flex-wrap:wrap}.legend span,.switchline{font-size:10px;color:var(--text-muted);white-space:nowrap;display:inline-flex;align-items:center;gap:6px}.legend i{width:12px;height:9px;display:inline-block;vertical-align:middle}.legend-stock{border:2px solid var(--accent);background:var(--stock)}.legend-flow{height:3px!important;border:0!important;border-radius:3px;background:linear-gradient(90deg,var(--diagram-price-flow) 0 50%,var(--diagram-capacity-flow) 50% 100%)}.legend-depend{border-top:1.5px dashed var(--text-muted)}.legend-constant{border:1px solid var(--accent);background:var(--surface-accent);border-radius:100px}.switchline input{accent-color:var(--accent);width:14px;height:14px}.inspect-panel{padding:15px 19px 18px}.inspect-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.info-tag{font-size:9px;font-weight:800;letter-spacing:.075em;padding:4px 7px;color:var(--accent);border:1px solid var(--border);background:var(--surface-accent);border-radius:4px}.inspect-first{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.inspect-first h3{font-size:17px;letter-spacing:-.02em;margin:0 0 3px;font-weight:680}.inspect-first .inspect-number{font-size:22px;font-weight:740;color:var(--accent);letter-spacing:-.04em;font-variant-numeric:tabular-nums}.inspect-description{font-size:11px;color:var(--text-muted);margin:3px 0 8px}.equation{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:9px 11px;color:var(--heading);font-family:"SFMono-Regular",Consolas,monospace;font-size:11px;line-height:1.55;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}.inspector-foot{margin-top:8px;font-size:11px;color:var(--text-muted)}.inspect-link{border:0;color:var(--accent);font-size:11px;background:none;font-weight:650;padding:0;cursor:pointer}.edit-panel,.lookup-panel,.scenarios-panel{scroll-margin-top:85px}.param-group-title{margin:9px 21px 2px;display:flex;gap:9px;color:var(--text-soft);letter-spacing:.09em;font-weight:780;font-size:10px}.param-group-title span{font-size:10px;color:var(--accent)}.param-group-title.lower-title{margin-top:20px}.control-list{padding:0 19px}.control-item{padding:12px 3px 13px;border-bottom:1px solid var(--border)}.control-item:last-child{border:0}.control-top{display:flex;gap:14px;justify-content:space-between;align-items:center}.control-label{min-width:0;display:block}.control-label strong{font-size:12px;color:var(--heading);font-weight:680;display:block}.control-label small{font-size:10px;color:var(--text-muted);display:block;margin-top:2px}.number-wrap{display:flex;align-items:center;gap:4px}.number-wrap input{background:var(--page-bg);color:var(--heading);width:89px;border:1px solid var(--border);border-radius:6px;padding:6px 9px;text-align:right;outline-offset:2px;font-weight:700;font-variant-numeric:tabular-nums}.number-wrap small{font-size:9px;color:var(--text-muted);min-width:30px}.control-item input[type=range],.time-inspector input[type=range]{display:block;width:100%;height:5px;margin:14px 0 2px;accent-color:var(--accent);cursor:pointer}.range-minmax{display:flex;justify-content:space-between;font-size:9px;color:var(--text-muted);font-variant-numeric:tabular-nums}.controls-note{color:var(--text-muted);border-top:1px solid var(--border);margin:14px 20px 0;padding:13px 0 16px;font-size:10px;line-height:1.7}.controls-note b{color:var(--text-soft)}.lookup-inner{padding:2px 20px 0}.lookup-inner svg{width:100%;display:block;max-height:245px;touch-action:none}.lookup-controls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.lookup-controls label{color:var(--text-muted);font-size:10px;font-weight:650}.lookup-controls input{width:100%;padding:7px 8px;border:1px solid var(--border);border-radius:5px;background:var(--page-bg);color:var(--heading);font-weight:690;margin-top:4px}.lookup-panel .controls-note{margin-top:16px}.scenario-actions{display:flex;gap:8px;padding:7px 20px 12px;flex-wrap:wrap}.primary-btn{border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:white;padding:8px 12px;font-weight:700;font-size:11px}.primary-btn:hover{background:var(--accent-hover)}.scenario-rows{padding:0 20px 18px}.scenario-row{padding:11px 0;border-top:1px solid var(--border);display:flex;align-items:center;gap:11px}.scenario-row:first-child{border-top:0}.scenario-dot{width:12px;height:12px;border-radius:50%;flex:0 0 12px}.scenario-label{flex:1;min-width:0}.scenario-label strong{color:var(--heading);display:block;font-size:11px}.scenario-label small{color:var(--text-muted);font-size:10px}.scenario-remove{border:0;background:none;color:var(--text-muted);cursor:pointer;font-size:10px}.scenario-remove:hover{color:#d45d57}.result-panel{padding-bottom:13px}.results-heading{padding:20px 21px 11px}.results-heading .section-index{margin-bottom:4px}.results-heading p{font-size:11px;color:var(--text-muted);margin:0}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:0 16px 14px}.kpi{background:var(--surface);border:1px solid var(--border);padding:10px 11px;border-radius:7px;min-width:0}.kpi span{font-size:9px;color:var(--text-muted);display:block;font-weight:650;letter-spacing:.02em;white-space:nowrap}.kpi b{display:block;font-size:22px;line-height:1.35;color:var(--heading);font-weight:730;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.kpi small{color:var(--text-muted);font-size:9px}.chart-caption{border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 18px 6px}.chart-caption strong,.secondary-heading strong{font-size:12px;color:var(--heading);display:block}.chart-caption span,.secondary-heading span{display:block;color:var(--text-muted);font-size:10px}.chart-caption select{max-width:156px;border:1px solid var(--border);background:var(--page-bg);color:var(--heading);border-radius:5px;padding:6px 7px;font-size:11px;font-weight:600}.plot-wrap{position:relative;margin:0 7px}.plot-wrap canvas{display:block;width:100%;height:245px;touch-action:pan-y}.plot-tooltip{position:absolute;z-index:2;background:var(--heading);color:var(--page-bg);padding:6px 9px;border-radius:5px;font-size:10px;pointer-events:none;white-space:nowrap;box-shadow:0 4px 14px var(--card-shadow)}.chart-key{padding:3px 20px 10px;display:flex;gap:14px;flex-wrap:wrap}.chart-key span{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--text-muted)}.chart-key i{display:inline-block;width:18px;height:0;border-top:2px solid var(--accent)}.chart-key .base{border-color:#a5b2b7;border-top-style:dashed}.chart-key .saved{border-color:#b783ba;border-top-style:dashed}.time-inspector{padding:13px 20px 12px;border-top:1px solid var(--border);background:var(--surface)}.time-top{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.04em;font-weight:730;color:var(--text-soft)}.time-top output{font-variant-numeric:tabular-nums;color:var(--accent)}.time-inspector input{margin:12px 0}.time-values{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.time-values>div{font-size:10px;color:var(--text-muted);border-right:1px solid var(--border)}.time-values>div:last-child{border:0}.time-values b{display:block;color:var(--heading);font-size:13px}.secondary-heading{padding:13px 20px 1px;display:flex;justify-content:space-between;gap:8px}.small-plot{padding:0 8px}.small-plot canvas{display:block;width:100%;height:137px}.related-legend{display:flex;justify-content:center;gap:15px;font-size:10px;color:var(--text-muted)}.related-legend span{display:flex;align-items:center;gap:5px}.related-legend i{width:9px;height:9px;border-radius:3px;display:inline-block}.model-warnings{margin:12px 16px 0;padding:9px 12px;border:1px solid color-mix(in srgb,var(--risk),transparent 70%);background:var(--risk-bg);color:var(--risk);border-radius:6px;font-size:10px;line-height:1.5}.provenance{padding:25px 4px 25px;margin-top:24px;border-top:1px solid var(--border)}.provenance h2{margin:9px 0;font-size:22px}.method-layout{display:flex;justify-content:space-between;gap:40px;align-items:start}.method-layout p{max-width:800px;font-size:12px;color:var(--text-soft);line-height:1.8;margin-bottom:8px}.method-note{font-style:italic;color:var(--text-muted)!important}.source-links{display:flex;flex-direction:column;gap:7px;flex:0 0 230px}.source-links a{justify-content:start}code{font-family:Consolas,monospace;font-size:11px;background:var(--surface);border:1px solid var(--border);padding:2px 4px;border-radius:3px}footer{border-top:1px solid var(--border);padding:20px 4px 32px;display:flex;justify-content:space-between;gap:15px;color:var(--text-muted);font-size:10px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--heading);color:var(--page-bg);font-size:12px;padding:10px 16px;border-radius:8px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:70}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.node{cursor:pointer;outline:none}.node rect,.node circle,.node path.node-outline{transition:fill .13s,stroke .13s}.node:hover .node-outline,.node.selected .node-outline{stroke-width:2.9!important;filter:drop-shadow(0 2px 5px rgba(39,140,168,.15))}.node:focus-visible .node-outline{stroke-width:3.2!important}.diagram-edge{transition:opacity .18s,stroke-width .18s}.diagram-edge.dim{opacity:.13}.diagram-edge.hot{stroke-width:2.7!important;opacity:1}.node.dim{opacity:.28}.node text{pointer-events:none}.lookup-dot{cursor:ns-resize;touch-action:none}.lookup-dot:hover{stroke-width:4}
+@media(max-width:1280px){.nav-inner{padding:0 20px;gap:13px}.toplinks a{padding:8px 8px}.site-main{padding:0 17px}.workspace{grid-template-columns:minmax(0,1.07fr) minmax(360px,.93fr);gap:13px}.kpi b{font-size:19px}.brand-text{font-size:11px}.brand-text small{font-size:7px}.panel-head{padding:18px 15px 11px}}
+@media(max-width:1000px){:root{--header-h:63px}.brand-text small{display:none}.toplinks{gap:0}.toplinks a{font-size:11px;padding:8px}.model-count{display:none}.workspace{grid-template-columns:minmax(0,1fr)}.results-column{grid-row:1}.chart-sticky{position:static;max-height:none;overflow:visible}.result-panel{display:grid;grid-template-columns:1fr 1fr}.results-heading,.kpis,.chart-caption,.plot-wrap,.chart-key,.time-inspector,.secondary-heading,.small-plot,.related-legend,.model-warnings{grid-column:span 2}.plot-wrap canvas{height:260px}.small-plot canvas{height:145px}.diagram-canvas svg{max-height:500px}.headline{padding:27px 0 18px}.headline-meta{max-width:230px}}
+@media(max-width:700px){.nav-inner{padding:0 12px;gap:7px;flex-wrap:wrap;align-content:center}.topnav{height:98px}.brand-icon{width:30px;height:30px;font-size:13px}.brand{gap:7px}.brand-text{font-size:10px}.topactions{margin-left:auto}.theme-button{padding:7px 8px}.toplinks{order:3;flex-basis:100%;justify-content:space-between;overflow:auto}.toplinks a{padding:7px 4px;font-size:10px}.site-main{padding:0 11px}.headline{flex-direction:column;gap:12px;align-items:start}.headline h1{font-size:26px}.headline-meta{max-width:none;justify-content:flex-start}.headline-meta span{font-size:8px}.panel-head{padding:17px 14px 9px}.diagram-canvas{padding:0 3px;min-height:190px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}.diagram-canvas svg{min-width:650px;max-height:none}.diagram-canvas.fitted svg{min-width:100%}.diagram-footer{padding:11px;flex-wrap:wrap;gap:7px}.legend{gap:8px}.legend span{font-size:9px}.panel-head p{font-size:10px}.result-panel{display:block}.plot-wrap canvas{height:230px}.small-plot canvas{height:138px}.chart-caption{padding:13px 12px 5px}.time-values{gap:4px}.kpis{padding:0 9px 12px}.kpi{padding:8px}.kpi b{font-size:18px}.lookup-inner{padding:0 10px}.lookup-controls{gap:4px}.lookup-controls input{font-size:11px;padding:6px 4px}.source-links{flex:none;width:100%}.method-layout{display:block}.source-links{margin-top:16px}.provenance{padding-top:24px}.controls-note{margin-left:13px;margin-right:13px}.control-list{padding:0 12px}.scenario-actions,.scenario-rows{padding-left:12px;padding-right:12px}footer{flex-direction:column;gap:5px}html{scroll-padding-top:120px}.edit-panel,.lookup-panel,.scenarios-panel{scroll-margin-top:120px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+
+
+/* Modern system-dynamics notation — retains the original Explorer visual identity. */
+:root{
+ --diagram-lane:var(--surface);
+ --diagram-lane-edge:var(--border);
+ --diagram-aux-fill:var(--page-bg);
+ --diagram-aux-edge:#d8e3e7;
+ --diagram-param-fill:var(--surface-accent);
+ --diagram-param-edge:var(--accent);
+ --diagram-lookup-fill:#f5f1fa;
+ --diagram-lookup-edge:#b6a3d2;
+ --diagram-stock-fill:var(--stock);
+ --diagram-stock-edge:var(--stock-edge);
+ --diagram-price-flow:#278ca8;
+ --diagram-capacity-flow:#c68b54;
+ --diagram-causal:#8a9aa1;
+ --diagram-muted:var(--text-muted);
+}
+html[data-theme=dark]{
+ --diagram-aux-edge:#34454b;
+ --diagram-lookup-fill:#292333;
+ --diagram-lookup-edge:#8b75b8;
+ --diagram-causal:#7e939a;
+}
+.diagram-canvas{padding:2px 8px 0;min-height:0}
+.diagram-canvas svg{display:block;width:100%;height:auto;max-height:none;overflow:visible}
+.diagram-lane{fill:var(--diagram-lane);stroke:var(--diagram-lane-edge);stroke-width:1}
+.diagram-lane-accent{fill:var(--accent);opacity:.9}
+.diagram-lane-label{font:700 10px Inter,Arial,sans-serif;letter-spacing:1.4px;fill:var(--text-muted)}
+.diagram-edge{fill:none;stroke:var(--diagram-causal);stroke-width:1.7;stroke-dasharray:4 5;stroke-linecap:round;opacity:.8;transition:opacity .18s,stroke-width .18s}
+.diagram-edge.hot{stroke:var(--accent);stroke-width:2.4;opacity:1}
+.diagram-edge.dim{opacity:.12}
+.node{cursor:pointer;outline:none;transition:opacity .16s}
+.node.dim{opacity:.24}
+.node-outline{stroke-width:1.15;transition:stroke .15s,filter .15s,fill .15s}
+.node:hover .node-outline,.node.selected .node-outline{stroke:var(--accent)!important;stroke-width:2!important;filter:drop-shadow(0 3px 7px rgba(39,140,168,.13))}
+.node:focus-visible .node-outline{stroke:var(--accent)!important;stroke-width:2.5!important}
+.node-kicker{font:750 8px Inter,Arial,sans-serif;letter-spacing:1.15px;fill:var(--text-muted)}
+.node-label{font:680 13px Inter,Arial,sans-serif;fill:var(--heading);letter-spacing:-.02em}
+.node-value{font:650 10px Inter,Arial,sans-serif;fill:var(--text-muted);font-variant-numeric:tabular-nums}
+.node-kind-aux .node-outline{fill:var(--diagram-aux-fill);stroke:var(--diagram-aux-edge)}
+.node-kind-parameter .node-outline{fill:var(--diagram-param-fill);stroke:var(--diagram-param-edge)}
+.node-kind-parameter .node-kicker{fill:var(--accent)}
+.node-kind-lookup .node-outline{fill:var(--diagram-lookup-fill);stroke:var(--diagram-lookup-edge)}
+.node-kind-lookup .node-kicker{fill:#8b75b8}
+.node-kind-stock .node-outline{fill:var(--diagram-stock-fill);stroke:var(--diagram-stock-edge);stroke-width:1.5}
+.node-kind-stock .node-kicker{fill:var(--accent)}
+.node-kind-flow .flow-pipe{fill:none;stroke-width:7;stroke-linecap:round;opacity:.9}
+.node-kind-flow .flow-pipe-highlight{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round;opacity:.62}
+.flow-cloud{fill:var(--page-bg);stroke-width:1.5}
+.flow-valve-ring{fill:var(--page-bg);stroke-width:2.2}
+.flow-valve-mark{fill:none;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+.flow-pill{fill:var(--page-bg);stroke:var(--border);stroke-width:1}
+.flow-pill-kicker{font:750 7px Inter,Arial,sans-serif;letter-spacing:1px;fill:var(--text-muted)}
+.flow-pill-label{font:700 11px Inter,Arial,sans-serif;fill:var(--heading)}
+.flow-node-price .flow-pipe,.flow-node-price .flow-cloud,.flow-node-price .flow-valve-ring{stroke:var(--diagram-price-flow)}
+.flow-node-price .flow-pipe{stroke:var(--diagram-price-flow)}
+.flow-node-price .flow-valve-mark{stroke:var(--diagram-price-flow)}
+.flow-node-capacity .flow-pipe,.flow-node-capacity .flow-cloud,.flow-node-capacity .flow-valve-ring{stroke:var(--diagram-capacity-flow)}
+.flow-node-capacity .flow-pipe{stroke:var(--diagram-capacity-flow)}
+.flow-node-capacity .flow-valve-mark{stroke:var(--diagram-capacity-flow)}
+.node.selected .flow-pill,.node:hover .flow-pill{stroke:var(--accent);stroke-width:1.7}
+.diagram-footer{padding-top:12px}
+@media(max-width:700px){.diagram-canvas{padding:0 2px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}.diagram-canvas svg{min-width:780px;max-height:none}}
+
+</style></head>
+<body>
+<header class="topnav" id="topnav"><div class="nav-inner">
+<a aria-label="System Dynamics Lab home" class="brand" href="../index.html"><span class="brand-icon">S<span>∿</span></span><span class="brand-text">SYSTEM DYNAMICS <b>LAB</b><small>AN INTERACTIVE MODEL WORKSPACE</small></span></a>
+<nav aria-label="Site navigation" class="toplinks"><a href="../index.html">Model Library</a><a class="navactive" href="#workspace">Workspace</a><a href="#parameters">Parameters</a><a href="#lookup">Lookup F</a><a href="#experiments">Scenarios</a></nav>
+<div class="topactions"><a class="small-btn" href="data:application/octet-stream;base64,e1VURi04fQ0KQ2FwYWNpdHk9IElOVEVHICgNCglDaGFuZ2UgaW4gQ2FwYWNpdHksDQoJCTEwMCkNCgl+CQ0KCX4JCXwNCg0KQ2hhbmdlIGluIENhcGFjaXR5PQ0KCShEZXNpcmVkIFN1cHBseS1DYXBhY2l0eSkvRGVsYXkNCgl+CQ0KCX4JCXwNCg0KRGVtYW5kIFNsb3BlPQ0KCTEwDQoJfgkNCgl+CQl8DQoNCkRlbGF5PQ0KCTINCgl+CQ0KCX4JCXwNCg0KRGVtYW5kPQ0KCTEwMDAtRGVtYW5kIFNsb3BlKlByaWNlDQoJfgkNCgl+CQl8DQoNClN1cHBseT0NCglDYXBhY2l0eQ0KCX4JDQoJfgkJfA0KDQpTdXBwbHkgU2xvcGU9DQoJMzANCgl+CQ0KCX4JCXwNCg0KRGVzaXJlZCBTdXBwbHk9DQoJU3VwcGx5IFNsb3BlKlByaWNlDQoJfgkNCgl+CQl8DQoNCkNoYW5nZSBpbiBQcmljZT0NCglFZmZlY3QqUHJpY2UNCgl+CQ0KCX4JCXwNCg0KRigNCglbKDAsLTAuNSktKDIsMSldLCgwLjEsLTAuNSksKDAuNSwtMC40KSwoMSwwKSwoMS41LDAuNyksKDIsMSkpDQoJfgkNCgl+CQl8DQoNCkVmZmVjdD0NCglGKERlbWFuZCBUbyBTdXBwbHkgUmF0aW8pDQoJfgkNCgl+CQl8DQoNCkRlbWFuZCBUbyBTdXBwbHkgUmF0aW89DQoJRGVtYW5kL1N1cHBseQ0KCX4JDQoJfgkJfA0KDQpQcmljZT0gSU5URUcgKA0KCUNoYW5nZSBpbiBQcmljZSwNCgkJNSkNCgl+CQ0KCX4JCXwNCg0KKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioNCgkuQ29udHJvbA0KKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKip+DQoJCVNpbXVsYXRpb24gQ29udHJvbCBQYXJhbWV0ZXJzDQoJfA0KDQpGSU5BTCBUSU1FICA9IDIwDQoJfglNb250aA0KCX4JVGhlIGZpbmFsIHRpbWUgZm9yIHRoZSBzaW11bGF0aW9uLg0KCXwNCg0KSU5JVElBTCBUSU1FICA9IDANCgl+CU1vbnRoDQoJfglUaGUgaW5pdGlhbCB0aW1lIGZvciB0aGUgc2ltdWxhdGlvbi4NCgl8DQoNClNBVkVQRVIgID0gDQogICAgICAgIFRJTUUgU1RFUA0KCX4JTW9udGggWzAsP10NCgl+CVRoZSBmcmVxdWVuY3kgd2l0aCB3aGljaCBvdXRwdXQgaXMgc3RvcmVkLg0KCXwNCg0KVElNRSBTVEVQICA9IDAuMTI1DQoJfglNb250aCBbMCw/XQ0KCX4JVGhlIHRpbWUgc3RlcCBmb3IgdGhlIHNpbXVsYXRpb24uDQoJfA0KDQpcXFwtLS0vLy8gU2tldGNoIGluZm9ybWF0aW9uIC0gZG8gbm90IG1vZGlmeSBhbnl0aGluZyBleGNlcHQgbmFtZXMNClYzMDAgIERvIG5vdCBwdXQgYW55dGhpbmcgYmVsb3cgdGhpcyBzZWN0aW9uIC0gaXQgd2lsbCBiZSBpZ25vcmVkDQoqVmlldyAxDQokMTkyLTE5Mi0xOTIsMCxUaW1lcyBOZXcgUm9tYW58MTJ8fDAtMC0wfDAtMC0wfDAtMC0yNTV8LTEtLTEtLTF8LTEtLTEtLTF8OTYsOTYsMTAwLDANCjEwLDEsUHJpY2UsNzQzLDI0Nyw2OCwxNywzLDEzMSwwLDAsMCwwLDAsMA0KMTIsMiw0OCw1MzUsMjQ5LDEwLDgsMCwzLDAsMCwtMSwwLDAsMA0KMSwzLDUsMSw0LDAsMCwyMiwwLDAsMCwtMS0tMS0tMSwsMXwoNjQ1LDI0OSl8DQoxLDQsNSwyLDEwMCwwLDAsMjIsMCwwLDAsLTEtLTEtLTEsLDF8KDU3NCwyNDkpfA0KMTEsNSw0OCw2MTAsMjQ5LDYsOCwzNCwzLDAsMCwxLDAsMCwwDQoxMCw2LENoYW5nZSBpbiBQcmljZSw2MTAsMjY4LDUwLDExLDQwLDMsMCwwLC0xLDAsMCwwDQoxMCw3LERlbWFuZCw2OTUsMTEzLDI4LDExLDgsMywwLDAsMCwwLDAsMA0KMTAsOCxTdXBwbHksNDE0LDQxMywyMywxMSw4LDMsMCwwLDAsMCwwLDANCjEwLDksRGVtYW5kIFRvIFN1cHBseSBSYXRpbywxMTYsMjU0LDg0LDIxLDgsMTMxLDAsMCwwLDAsMCwwDQoxLDEwLDEsNywxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoNzY5LDE2Nil8DQoxLDExLDcsOSwxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoMzQ4LDEyMCl8DQoxLDEyLDgsOSwxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoMjU4LDM2NSl8DQoxLDEzLDEsNiwxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoNjcyLDMwMSl8DQoxMCwxNCxGLDM2OSwxOTAsNywxMSw4LDMsMCwwLDAsMCwwLDANCjEwLDE1LEVmZmVjdCwzNTAsMjY5LDIwLDExLDgsMTMxLDAsMCwwLDAsMCwwDQoxLDE2LDksMTUsMSwwLDAsMCwwLDY0LDAsLTEtLTEtLTEsLDF8KDI3MSwyOTIpfA0KMSwxNywxNSw2LDEsMCwwLDAsMCw2NCwwLC0xLS0xLS0xLCwxfCg0NzAsMzEwKXwNCjEsMTgsMTQsMTUsMSwwLDAsMCwwLDY0LDAsLTEtLTEtLTEsLDF8KDM0OSwyMTUpfA0KMTAsMTksQ2FwYWNpdHksNzM2LDM4Myw2OCwxNiwzLDEzMSwwLDAsMCwwLDAsMA0KMTIsMjAsNDgsOTU4LDM4MiwxMCw4LDAsMywwLDAsLTEsMCwwLDANCjEsMjEsMjMsMTksNCwwLDAsMjIsMCwwLDAsLTEtLTEtLTEsLDF8KDgzOSwzODMpfA0KMSwyMiwyMywyMCwxMDAsMCwwLDIyLDAsMCwwLC0xLS0xLS0xLCwxfCg5MTcsMzgzKXwNCjExLDIzLDAsODgxLDM4Myw2LDgsMzQsMywwLDAsMSwwLDAsMA0KMTAsMjQsQ2hhbmdlIGluIENhcGFjaXR5LDg4MSw0MTAsMzIsMTksNDAsMywwLDAsLTEsMCwwLDANCjEsMjUsMTksMjQsMSwwLDAsMCwwLDY0LDAsLTEtLTEtLTEsLDF8KDgwMiw0MzUpfA0KMTAsMjYsRGVsYXksOTk0LDQ4OSwyMCwxMSw4LDMsMCwwLDAsMCwwLDANCjEwLDI3LERlc2lyZWQgU3VwcGx5LDkwMSwyOTQsNDksMTEsOCwzLDAsMCwwLDAsMCwwDQoxLDI4LDEsMjcsMSwwLDAsMCwwLDY0LDAsLTEtLTEtLTEsLDF8KDg2OSwyNjEpfA0KMSwyOSwyNywyMywxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoOTAxLDM0Mil8DQoxLDMwLDE5LDgsMSwwLDAsMCwwLDY0LDAsLTEtLTEtLTEsLDF8KDQ4NCw0MjgpfA0KMSwzMSwyNiwyNCwxLDAsMCwwLDAsNjQsMCwtMS0tMS0tMSwsMXwoOTA2LDQ0Nyl8DQoxMCwzMixEZW1hbmQgU2xvcGUsODcxLDc4LDQ3LDExLDgsMywwLDAsMCwwLDAsMA0KMSwzMywzMiw3LDEsMCwwLDAsMCw2NCwwLC0xLS0xLS0xLCwxfCg3NDksNzkpfA0KMTAsMzQsU3VwcGx5IFNsb3BlLDk2MCwxOTUsNDMsMTEsOCwzLDAsMCwwLDAsMCwwDQoxLDM1LDM0LDI3LDEsMCwwLDAsMCw2NCwwLC0xLS0xLS0xLCwxfCg5MTUsMjM2KXwNCi8vLy0tLVxcXA0KOkx/PCVeRSFADQoxOkRlbWFuZCBhbmQgU3VwcGx5K0xvb2t1cC52ZGYNCjk6RGVtYW5kIGFuZCBTdXBwbHkrTG9va3VwDQoyMzowDQoxNTowLDAsMCwwLDAsMA0KMTk6MTAwLDANCjI3OjAsDQozNDowLA0KNDpUaW1lDQo1OkYNCjM1OkRhdGUNCjM2OllZWVktTU0tREQNCjM3OjIwMDANCjM4OjENCjM5OjENCjQwOjINCjQxOjANCjQyOjENCjI0OjANCjI1OjIwDQoyNjoyMA0K" download>↓ Source MDL</a><button aria-label="Switch light and dark mode" class="theme-button" id="themeToggle" type="button">◐ <span>Theme</span></button></div>
+</div></header>
+<main class="site-main" id="top">
+<section class="headline"><div class="headline-left"><div class="eyebrow"><span class="eyebrow-square"></span> SYSTEM DYNAMICS / INTERACTIVE MODEL 01</div><h1>Demand, Supply <em>&amp; Adjustment Delay</em></h1><p>Change model parameters. Examine feedback structure. Observe how price and supply capacity respond in real time.</p></div><div class="headline-meta"><span class="status"><i></i> LIVE SIMULATION</span><span>0–20 MONTHS</span><span>Δt 0.125 · EULER</span></div></section>
+<section class="workspace" id="workspace">
+<div class="left-column">
+<article class="panel diagram-panel"><div class="panel-head"><div><div class="section-index">01 / SYSTEM STRUCTURE</div><h2>Interactive stock–flow diagram</h2><p>Select any variable to inspect its equation. Colored solid arrows represent flows; thin arrows indicate dependencies.</p></div><button class="small-btn" id="diagramReset" type="button">↗ Fit</button></div>
+<div class="diagram-canvas"><svg aria-label="Modern stock-and-flow diagram showing price feedback and capacity adjustment" id="structureDiagram" role="group" viewBox="0 0 1120 650"></svg></div>
+<div class="diagram-footer"><div class="legend"><span><i class="legend-stock"></i> Stock</span><span><i class="legend-flow"></i> Flow</span><span><i class="legend-depend"></i> Influence</span><span><i class="legend-constant"></i> Editable parameter</span></div><label class="switchline"><input checked="" id="showAll" type="checkbox"/> All causal links</label></div>
+</article>
+<article class="panel inspect-panel"><div class="inspect-title"><div class="section-index">SELECTED VARIABLE / EQUATION INSPECTOR</div><span class="info-tag" id="inspectType">STOCK</span></div><div id="inspector"></div></article>
+<article class="panel edit-panel" id="parameters"><div class="panel-head"><div><div class="section-index">02 / CONTROLLED EXPERIMENT</div><h2>Edit model parameters</h2><p>Only original constants and stock initial values are editable. Other model equations are read-only.</p></div><button class="small-btn" id="resetParams" type="button">↺ Reset</button></div>
+<div class="param-group-title">MODEL CONSTANTS <span>03</span></div><div class="control-list" id="constControls"></div>
+<div class="param-group-title lower-title">INITIAL CONDITIONS <span>02</span></div><div class="control-list" id="stockControls"></div>
+<p class="controls-note"><b>Fixed by source:</b> demand intercept = 1000, model equations, time step and simulation horizon. <b>F</b> is a lookup function and is edited separately below.</p>
+</article>
+<article class="panel lookup-panel" id="lookup"><div class="panel-head"><div><div class="section-index">03 / NONLINEAR RESPONSE</div><h2>Lookup function F</h2><p>Drag points vertically or enter values below. The primary chart responds immediately.</p></div><button class="small-btn" id="resetLookup" type="button">↺ Reset F</button></div><div class="lookup-inner"><svg aria-label="Editable linear lookup function graph" id="lookupGraph" role="group" viewbox="0 0 660 270"></svg><div class="lookup-controls" id="lookupInputs"></div></div><p class="controls-note">Original x coordinates are fixed (0.1, 0.5, 1, 1.5, 2). Piecewise linear interpolation; inputs outside the domain hold the nearest endpoint value.</p></article>
+<article class="panel scenarios-panel" id="experiments"><div class="panel-head"><div><div class="section-index">04 / RUN COMPARISON</div><h2>Save &amp; compare scenarios</h2><p>Pin runs to compare behavior with the unchanged reference.</p></div></div><div class="scenario-actions"><button class="primary-btn" id="saveRun" type="button">+ Pin current run</button><button class="small-btn" id="exportCsv" type="button">↓ Export CSV</button><button class="small-btn" id="shareLink" type="button">↗ Copy link</button></div><div class="scenario-rows" id="scenarioRows"></div></article>
+</div>
+<aside aria-label="Real-time simulation results" class="results-column"><div class="chart-sticky"><article class="panel result-panel"><div class="results-heading"><div class="section-index"><span class="live-dot"></span> LIVE OUTPUT / UPDATES ON INPUT</div><h2>See the system respond</h2><p>Charts remain visible while parameters are adjusted.</p></div>
+<div class="kpis" id="kpiRow"></div>
+<div class="chart-caption"><div><strong>Behavior over time</strong><span>Current run vs. original reference</span></div><select aria-label="Primary chart variable" id="primaryVariable"><option>Price</option><option>Capacity</option><option>Demand</option><option>Supply</option><option>Desired Supply</option><option>Change in Price</option><option>Change in Capacity</option><option>Demand To Supply Ratio</option><option>Effect</option></select></div>
+<div class="plot-wrap"><canvas aria-label="Time series simulation chart" id="pricePlot" role="img"></canvas><div class="plot-tooltip" hidden="" id="chartTooltip"></div></div>
+<div class="chart-key"><span><i class="curr"></i>Current</span><span><i class="base"></i>Original</span><span><i class="saved"></i>Pinned runs</span></div>
+<div class="time-inspector"><div class="time-top"><label for="timeSlider">INSPECT TIME</label><output id="timeReadout">20.00 mo</output></div><input id="timeSlider" max="20" min="0" step=".125" type="range" value="20"/><div class="time-values" id="timeValues"></div></div>
+<div class="secondary-heading"><strong>Connected dynamics</strong><span>Supply, demand &amp; desired capacity</span></div><div class="small-plot"><canvas aria-label="Comparison chart for supply demand and desired supply" id="relatedPlot" role="img"></canvas></div><div class="related-legend"><span><i style="background:#278ca8"></i>Demand</span><span><i style="background:#c68b54"></i>Supply</span><span><i style="background:#8b75b8"></i>Desired supply</span></div>
+<div class="model-warnings" hidden="" id="modelWarnings"></div>
+</article></div></aside>
+</section>
+
+<footer><span>© 2026 Farhad Mehrabi · System Dynamics Lab</span><span>Source-grounded prototype · Validate against Vensim before research use</span></footer>
+</main>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+
+
+<script>
+/* System Dynamics Lab — explicit transcription of uploaded Vensim equations.
+   Source: Demand and Supply+Lookup+Delay(1).mdl.
+   Integration: Euler; DT=.125, INITIAL TIME=0, FINAL TIME=20.
+   Lookup: linear interpolation with Vensim-style endpoint hold.
+   No other Vensim functionality is claimed or implied. */
+(function(root){
+'use strict';
+const DT=.125, FINAL=20;
+const LOOKUP=[[.1,-.5],[.5,-.4],[1,0],[1.5,.7],[2,1]];
+const DEFAULTS={demandSlope:10,supplySlope:30,delay:2,initialPrice:5,initialCapacity:100,lookup:LOOKUP.map(a=>a.slice())};
+const clone=a=>JSON.parse(JSON.stringify(a));
+function lookup(x,points){
+ if(!Number.isFinite(x))throw Error('Lookup input is non-finite.');
+ if(x<=points[0][0])return points[0][1];
+ if(x>=points[points.length-1][0])return points[points.length-1][1];
+ for(let i=1;i<points.length;i++)if(x<=points[i][0]){const [xa,ya]=points[i-1],[xb,yb]=points[i];return ya+(x-xa)*(yb-ya)/(xb-xa)}
+ throw Error('Interpolation failed');
+}
+const LIMITS={demandSlope:[.5,40],supplySlope:[1,80],delay:[.25,12],initialPrice:[.5,50],initialCapacity:[1,800]};
+function validate(p){for(const [k,[lo,hi]] of Object.entries(LIMITS))if(!Number.isFinite(p[k])||p[k]<lo||p[k]>hi)throw Error(`${k} must be in [${lo}, ${hi}]`);
+ if(!Array.isArray(p.lookup)||p.lookup.length!==5||p.lookup.some((xy,i)=>!Array.isArray(xy)||xy.length!==2||!xy.every(Number.isFinite)||(i>0&&xy[0]<=p.lookup[i-1][0])||xy[1]<-1||xy[1]>1.5))throw Error('Lookup points must have increasing x and y between -1 and 1.5.');
+}
+function equations(p,price,capacity){
+ const demand=1000-p.demandSlope*price;
+ const supply=capacity;
+ const ratio=demand/supply;
+ const effect=lookup(ratio,p.lookup);
+ const desired=p.supplySlope*price;
+ const dPrice=effect*price;
+ const dCapacity=(desired-capacity)/p.delay;
+ return {Price:price,Capacity:capacity,Demand:demand,Supply:supply,'Demand To Supply Ratio':ratio,F:effect,Effect:effect,'Desired Supply':desired,'Change in Price':dPrice,'Change in Capacity':dCapacity,'Demand Slope':p.demandSlope,'Supply Slope':p.supplySlope,Delay:p.delay};
+}
+function simulate(overrides={}){
+ const p={...clone(DEFAULTS),...clone(overrides)};validate(p);
+ const rows=[];let price=p.initialPrice,capacity=p.initialCapacity;
+ const warnings={lookupOutside:0,negativeDemand:0};
+ for(let i=0;i<=Math.round(FINAL/DT);i++){
+  let row={t:Number((i*DT).toFixed(9)),...equations(p,price,capacity)};
+  if(Object.values(row).some(v=>!Number.isFinite(v)))throw Error(`The model diverged at t=${row.t}.`);
+  if(row['Demand To Supply Ratio']<p.lookup[0][0]||row['Demand To Supply Ratio']>p.lookup.at(-1)[0])warnings.lookupOutside++;
+  if(row.Demand<0)warnings.negativeDemand++;
+  rows.push(row);
+  if(i<FINAL/DT){const nextPrice=price+DT*row['Change in Price'];const nextCapacity=capacity+DT*row['Change in Capacity'];price=nextPrice;capacity=nextCapacity;}
+ }
+ return {rows,params:p,warnings};
+}
+function at(run,time){return run.rows[Math.max(0,Math.min(run.rows.length-1,Math.round(time/DT)))]}
+function theoreticalEquilibrium(p){const price=1000/(p.demandSlope+p.supplySlope);return{price,capacity:p.supplySlope*price,lookupAtOne:lookup(1,p.lookup)}}
+const api={DT,FINAL,DEFAULTS,LIMITS,LOOKUP,lookup,validate,equations,simulate,at,theoreticalEquilibrium,clone};
+root.SDExplorerEngine=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof window!=='undefined'?window:globalThis);
+
+</script>
+<script>
+(function(){
+'use strict';
+const E=window.SDExplorerEngine;
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const fmt=(n,k=2)=>Number.isFinite(n)?new Intl.NumberFormat('en-US',{maximumFractionDigits:k}).format(n):'—';
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const fields=[
+ {key:'demandSlope',label:'Demand Slope',detail:'Demand sensitivity to price',min:.5,max:40,step:.5,unit:''},
+ {key:'supplySlope',label:'Supply Slope',detail:'Desired supply per unit of price',min:1,max:80,step:1,unit:''},
+ {key:'delay',label:'Delay',detail:'Capacity adjustment time',min:.25,max:12,step:.25,unit:'mo'},
+ {key:'initialPrice',label:'Initial Price',detail:'Price stock at t = 0',min:.5,max:50,step:.5,unit:''},
+ {key:'initialCapacity',label:'Initial Capacity',detail:'Capacity stock at t = 0',min:1,max:800,step:1,unit:''}
+];
+const vars={
+ 'Price':{type:'Stock',equation:'Price = INTEG(Change in Price, 5)',detail:'Market price accumulates the change induced by the lookup-driven effect.',editor:'initialPrice'},
+ 'Capacity':{type:'Stock',equation:'Capacity = INTEG(Change in Capacity, 100)',detail:'Supply capacity adjusts over time toward the desired level.',editor:'initialCapacity'},
+ 'Demand':{type:'Auxiliary',equation:'Demand = 1000 − Demand Slope × Price',detail:'Price-sensitive demand. The intercept 1000 is fixed in the source model.'},
+ 'Supply':{type:'Auxiliary',equation:'Supply = Capacity',detail:'Actual supply equals the Capacity stock.'},
+ 'Desired Supply':{type:'Auxiliary',equation:'Desired Supply = Supply Slope × Price',detail:'Target supply level implied by the current price.'},
+ 'Change in Price':{type:'Rate / flow',equation:'Change in Price = Effect × Price',detail:'Rate of change feeding the Price stock.'},
+ 'Change in Capacity':{type:'Rate / flow',equation:'Change in Capacity = (Desired Supply − Capacity) / Delay',detail:'First-order adjustment from actual to desired supply.'},
+ 'Demand To Supply Ratio':{type:'Auxiliary',equation:'Demand To Supply Ratio = Demand / Supply',detail:'Relative demand-to-supply signal entering Effect.'},
+ 'Effect':{type:'Auxiliary',equation:'Effect = F(Demand To Supply Ratio)',detail:'Combines the demand-to-supply ratio with lookup function F to determine the price adjustment effect.'},
+ 'F':{type:'Graphical lookup',equation:'F([(0,−0.5)–(2,1)], (0.1,−0.5), (0.5,−0.4), (1,0), (1.5,0.7), (2,1))',detail:'Piecewise-linear lookup function used by Effect. Only the y-values are editable.',editor:'lookup'},
+ 'Demand Slope':{type:'Constant',equation:'Demand Slope = 10',detail:'Parameter in the demand equation.',editor:'demandSlope'},
+ 'Supply Slope':{type:'Constant',equation:'Supply Slope = 30',detail:'Parameter in the desired supply equation.',editor:'supplySlope'},
+ 'Delay':{type:'Constant',equation:'Delay = 2',detail:'Positive supply adjustment delay in months.',editor:'delay'}
+};
+const diagramNodes={
+ 'Demand Slope':{id:'Demand Slope',kind:'parameter',x:120,y:105,w:150,h:56,valueKey:'demandSlope'},
+ 'Demand':{id:'Demand',kind:'aux',x:330,y:105,w:140,h:56},
+ 'Demand To Supply Ratio':{id:'Demand To Supply Ratio',kind:'aux',x:570,y:105,w:220,h:56},
+ 'F':{id:'F',kind:'lookup',x:810,y:105,w:120,h:56},
+ 'Effect':{id:'Effect',kind:'aux',x:1000,y:180,w:140,h:56},
+ 'Price':{id:'Price',kind:'stock',x:540,y:260,w:210,h:82},
+ 'Change in Price':{id:'Change in Price',kind:'flow',x:770,y:260},
+ 'Supply':{id:'Supply',kind:'aux',x:310,y:390,w:150,h:56},
+ 'Capacity':{id:'Capacity',kind:'stock',x:540,y:530,w:210,h:82},
+ 'Desired Supply':{id:'Desired Supply',kind:'aux',x:860,y:400,w:170,h:56},
+ 'Supply Slope':{id:'Supply Slope',kind:'parameter',x:1020,y:350,w:140,h:56,valueKey:'supplySlope'},
+ 'Change in Capacity':{id:'Change in Capacity',kind:'flow',x:750,y:530},
+ 'Delay':{id:'Delay',kind:'parameter',x:900,y:590,w:120,h:48,valueKey:'delay'}
+};
+// Causal links follow the equations in the source model. Stock inflows are drawn separately as flow pipes.
+const edges=[
+ {from:'Demand Slope',to:'Demand',d:'M 195 105 C 215 105 238 105 260 105'},
+ {from:'Price',to:'Demand',d:'M 466 219 C 448 183 418 153 382 135'},
+ {from:'Demand',to:'Demand To Supply Ratio',d:'M 400 105 C 420 105 440 105 460 105'},
+ {from:'Supply',to:'Demand To Supply Ratio',d:'M 310 362 C 310 300 345 240 405 195 C 435 165 460 145 485 133'},
+ {from:'Demand To Supply Ratio',to:'Effect',d:'M 680 132 C 735 174 835 207 930 184'},
+ {from:'F',to:'Effect',d:'M 870 110 C 910 116 940 135 960 154'},
+ {from:'Effect',to:'Change in Price',d:'M 950 208 C 925 248 858 286 790 278'},
+ {from:'Price',to:'Change in Price',d:'M 645 286 C 690 318 735 311 760 280'},
+ {from:'Price',to:'Desired Supply',d:'M 645 288 C 700 333 745 361 775 390'},
+ {from:'Supply Slope',to:'Desired Supply',d:'M 1020 377 C 1005 391 975 400 945 400'},
+ {from:'Desired Supply',to:'Change in Capacity',d:'M 860 428 C 835 460 800 480 755 514'},
+ {from:'Capacity',to:'Supply',d:'M 435 530 C 400 505 380 465 370 417'},
+ {from:'Capacity',to:'Change in Capacity',d:'M 645 554 C 690 584 730 574 750 546'},
+ {from:'Delay',to:'Change in Capacity',d:'M 840 590 C 805 580 775 565 758 546'}
+];
+let state={p:E.clone(E.DEFAULTS),run:null,baseline:E.simulate(),pins:[],selected:'Price',metric:'Price',time:20,all:true,layout:null};
+state.run=E.simulate(state.p);
+let toastTimer=null;
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(s){const el=$('#toast');el.textContent=s;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2450)}
+function getCss(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+function loadTheme(){let theme='light';try{theme=localStorage.getItem('sdexplorer-theme')||'light'}catch{}document.documentElement.dataset.theme=theme}
+function setTheme(){let next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('sdexplorer-theme',next)}catch{}requestAnimationFrame(renderPlots);makeDiagram()}
+function svgNodeLabel(text,x,y,anchor='start',cls='node-label'){
+ return `<text class="${cls}" x="${x}" y="${y}" text-anchor="${anchor}">${escapeHTML(text)}</text>`;
+}
+function nodeHit(n,pad=8){return `<rect class="node-hit" x="${n.x-n.w/2-pad}" y="${n.y-n.h/2-pad}" width="${n.w+pad*2}" height="${n.h+pad*2}" rx="12" fill="transparent"/>`;}
+function auxiliaryNode(n,current){
+ const x=n.x-n.w/2,y=n.y-n.h/2,label=n.label||n.id,value=current[n.id];
+ return `<g class="node node-kind-aux" data-node="${escapeHTML(n.id)}" tabindex="0" role="button" aria-label="Inspect ${escapeHTML(n.id)}">
+  ${nodeHit(n)}<rect class="node-outline" x="${x}" y="${y}" width="${n.w}" height="${n.h}" rx="12"/>
+  ${svgNodeLabel(label,x+14,y+25,'start','node-label')}
+  ${svgNodeLabel('AUXILIARY',x+14,y+44,'start','node-kicker')}
+  ${svgNodeLabel(fmt(value,2),x+n.w-13,y+25,'end','node-value')}
+ </g>`;
+}
+function parameterNode(n){
+ const x=n.x-n.w/2,y=n.y-n.h/2,value=state.p[n.valueKey],unit=n.valueKey==='delay'?' mo':'';
+ return `<g class="node node-kind-parameter" data-node="${escapeHTML(n.id)}" tabindex="0" role="button" aria-label="Inspect ${escapeHTML(n.id)}">
+  ${nodeHit(n)}<rect class="node-outline" x="${x}" y="${y}" width="${n.w}" height="${n.h}" rx="13"/>
+  ${svgNodeLabel(n.id,x+14,y+25,'start','node-label')}
+  ${svgNodeLabel('CONSTANT',x+14,y+44,'start','node-kicker')}
+  ${svgNodeLabel(fmt(value,2)+unit,x+n.w-13,y+25,'end','node-value')}
+ </g>`;
+}
+function lookupNode(n){
+ const x=n.x-n.w/2,y=n.y-n.h/2;
+ return `<g class="node node-kind-lookup" data-node="F" tabindex="0" role="button" aria-label="Inspect lookup function F">
+  ${nodeHit(n)}<rect class="node-outline" x="${x}" y="${y}" width="${n.w}" height="${n.h}" rx="13"/>
+  ${svgNodeLabel('F',x+12,y+25,'start','node-label')}
+  ${svgNodeLabel('LOOKUP',x+12,y+44,'start','node-kicker')}
+  <path d="M ${x+50} ${y+41} L ${x+66} ${y+37} L ${x+82} ${y+25} L ${x+98} ${y+17}" fill="none" stroke="#8b75b8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="${x+50}" cy="${y+41}" r="2.2" fill="#8b75b8"/><circle cx="${x+98}" cy="${y+17}" r="2.2" fill="#8b75b8"/>
+ </g>`;
+}
+function stockNode(n,current){
+ const x=n.x-n.w/2,y=n.y-n.h/2,initial=n.id==='Price'?state.p.initialPrice:state.p.initialCapacity;
+ return `<g class="node node-kind-stock" data-node="${escapeHTML(n.id)}" tabindex="0" role="button" aria-label="Inspect ${escapeHTML(n.id)}">
+  ${nodeHit(n,9)}<rect class="node-outline" x="${x}" y="${y}" width="${n.w}" height="${n.h}" rx="14"/>
+  <rect x="${x+1}" y="${y+12}" width="4" height="${n.h-24}" rx="2" fill="var(--accent)"/>
+  ${svgNodeLabel(n.id,x+17,y+31,'start','node-label')}
+  ${svgNodeLabel('STOCK',x+17,y+49,'start','node-kicker')}
+  ${svgNodeLabel('CURRENT  '+fmt(current[n.id],2)+'   ·   INITIAL  '+fmt(initial,2),x+17,y+68,'start','node-value')}
+ </g>`;
+}
+function cloudMarkup(x,y,cls){
+ return `<path class="flow-cloud ${cls}" transform="translate(${x} ${y})" d="M 10 29 C 1 29 -2 22 2 16 C 3 8 12 4 19 8 C 23 -1 35 -2 41 6 C 50 3 58 9 57 18 C 65 20 65 29 56 31 Z"/>`;
+}
+function valveMarkup(x,y,cls){
+ return `<g class="flow-valve ${cls}"><circle class="flow-valve-ring" cx="${x}" cy="${y}" r="12"/><path class="flow-valve-mark" d="M ${x-6} ${y-6} L ${x} ${y} L ${x-6} ${y+6} M ${x+6} ${y-6} L ${x} ${y} L ${x+6} ${y+6}"/></g>`;
+}
+function priceFlowNode(){
+ return `<g class="node node-kind-flow flow-node-price" data-node="Change in Price" tabindex="0" role="button" aria-label="Inspect Change in Price">
+  <rect class="node-hit" x="635" y="207" width="330" height="100" rx="12" fill="transparent"/>
+  <path class="flow-pipe" d="M 900 260 H 645" marker-end="url(#priceFlowArrow)"/>
+  <path class="flow-pipe-highlight" d="M 895 257 H 654"/>
+  ${cloudMarkup(890,238,'price-cloud')}
+  ${valveMarkup(770,260,'price-valve')}
+  <rect class="flow-pill" x="690" y="213" width="160" height="34" rx="9"/>
+  ${svgNodeLabel('Change in Price',702,226,'start','flow-pill-label')}
+  ${svgNodeLabel('RATE / FLOW',702,240,'start','flow-pill-kicker')}
+ </g>`;
+}
+function capacityFlowNode(){
+ return `<g class="node node-kind-flow flow-node-capacity" data-node="Change in Capacity" tabindex="0" role="button" aria-label="Inspect Change in Capacity">
+  <rect class="node-hit" x="635" y="477" width="300" height="112" rx="12" fill="transparent"/>
+  <path class="flow-pipe" d="M 850 530 H 645" marker-end="url(#capacityFlowArrow)"/>
+  <path class="flow-pipe-highlight" d="M 845 527 H 654"/>
+  ${cloudMarkup(840,508,'capacity-cloud')}
+  ${valveMarkup(750,530,'capacity-valve')}
+  <rect class="flow-pill" x="665" y="481" width="174" height="34" rx="9"/>
+  ${svgNodeLabel('Change in Capacity',677,494,'start','flow-pill-label')}
+  ${svgNodeLabel('RATE / FLOW',677,508,'start','flow-pill-kicker')}
+ </g>`;
+}
+function causalEdges(){
+ return edges.map((e,i)=>`<path class="diagram-edge" data-edge="${i}" data-kind="causal" data-from="${escapeHTML(e.from)}" data-to="${escapeHTML(e.to)}" d="${e.d}" marker-end="url(#causalArrow)"/>`).join('');
+}
+function makeDiagram(){
+ const svg=$('#structureDiagram');
+ const current=E.at(state.run,state.time);
+ const defs=`<defs>
+  <marker id="causalArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--diagram-causal)"/></marker>
+  <marker id="priceFlowArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 9 4.5 L 0 9 Z" fill="var(--diagram-price-flow)"/></marker>
+  <marker id="capacityFlowArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 9 4.5 L 0 9 Z" fill="var(--diagram-capacity-flow)"/></marker>
+ </defs>`;
+ const lanes=`<g class="diagram-lanes">
+  <rect class="diagram-lane" x="20" y="24" width="1080" height="286" rx="17"/>
+  <rect class="diagram-lane-accent" x="20" y="24" width="4" height="286" rx="2"/>
+  <text class="diagram-lane-label" x="42" y="49">PRICE / DEMAND FEEDBACK</text>
+  <rect class="diagram-lane" x="20" y="330" width="1080" height="300" rx="17"/>
+  <rect class="diagram-lane-accent" x="20" y="330" width="4" height="300" rx="2"/>
+  <text class="diagram-lane-label" x="42" y="355">CAPACITY ADJUSTMENT</text>
+ </g>`;
+ const nodes=Object.values(diagramNodes).map(n=>{
+  if(n.kind==='stock')return stockNode(n,current);
+  if(n.kind==='parameter')return parameterNode(n);
+  if(n.kind==='lookup')return lookupNode(n);
+  if(n.kind==='aux')return auxiliaryNode(n,current);
+  return '';
+ }).join('');
+ svg.innerHTML=defs+lanes+causalEdges()+priceFlowNode()+capacityFlowNode()+nodes;
+ $$('[data-node]').forEach(el=>{
+  el.addEventListener('click',()=>select(el.dataset.node));
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(el.dataset.node)}});
+ });
+ select(state.selected);
+}
+function select(id){
+ state.selected=id;
+ const connected=new Set([id]);
+ edges.forEach(e=>{if(e.from===id||e.to===id){connected.add(e.from);connected.add(e.to)}});
+ $$('[data-node]').forEach(n=>{const own=n.dataset.node===id;n.classList.toggle('selected',own);n.classList.toggle('dim',!state.all&&!connected.has(n.dataset.node))});
+ $$('.diagram-edge').forEach(e=>{const has=e.dataset.from===id||e.dataset.to===id;e.classList.toggle('dim',!state.all&&!has);e.classList.toggle('hot',has)});
+ renderInspector();
+}
+function renderInspector(){const id=state.selected,v=vars[id],current=E.at(state.run,state.time);let val=current[id];const editor=v.editor,editable=Boolean(editor);
+ $('#inspectType').textContent=v.type.toUpperCase();
+ let editText=editor==='lookup'?'Edit lookup F ↘':editor?'Edit '+(editor==='initialPrice'||editor==='initialCapacity'?'initial value':'parameter')+' ↘':'';
+ $('#inspector').innerHTML=`<div class="inspect-first"><h3>${escapeHTML(id)}</h3><div class="inspect-number">${fmt(val,3)}</div></div><div class="inspect-description">${escapeHTML(v.detail)}</div><div class="equation">${escapeHTML(v.equation)}</div><div class="inspector-foot">VALUE AT MONTH ${fmt(state.time,2)} · ${editable?'<button type="button" class="inspect-link" id="jumpEditor">'+escapeHTML(editText)+'</button>':'Read-only calculated variable'}</div>`;
+ const jump=$('#jumpEditor');if(jump)jump.onclick=()=>{const el=editor==='lookup'?$('#lookup'):$(`[data-control="${editor}"]`);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>el.querySelector('input[type=range],input[type=number]')?.focus({preventScroll:true}),400)}};
+}
+function renderControls(){const groups={constants:fields.slice(0,3),stocks:fields.slice(3)};
+ for(const [name,group] of Object.entries(groups)){
+ const el=name==='constants'?$('#constControls'):$('#stockControls');el.innerHTML=group.map(f=>`<div class="control-item" data-control="${f.key}"><div class="control-top"><label class="control-label" for="number-${f.key}"><strong>${escapeHTML(f.label)}</strong><small>${escapeHTML(f.detail)}</small></label><div class="number-wrap"><input type="number" id="number-${f.key}" data-input="${f.key}" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.p[f.key]}" aria-label="Set ${escapeHTML(f.label)}"><small>${f.unit||' '}</small></div></div><input type="range" aria-label="Adjust ${escapeHTML(f.label)}" data-range="${f.key}" min="${f.min}" max="${f.max}" step="${f.step}" value="${state.p[f.key]}"><div class="range-minmax"><span>${f.min}</span><span>${f.max}</span></div></div>`).join('');
+ }
+ $$('[data-range]').forEach(input=>input.addEventListener('input',()=>setField(input.dataset.range,Number(input.value),'range')));
+ $$('[data-input]').forEach(input=>{input.addEventListener('change',()=>{const x=Number(input.value);if(input.value.trim()===''||!Number.isFinite(x)){input.value=state.p[input.dataset.input];return}setField(input.dataset.input,x,'number')});input.addEventListener('keydown',e=>{if(e.key==='Enter')input.blur()})});
+}
+function setField(key,val){const f=fields.find(f=>f.key===key);if(!f)return;if(val<f.min||val>f.max){toast(`${f.label} must be between ${f.min} and ${f.max}`);syncInputs(key);return}let p={...state.p,[key]:val};if(!replaceRun(p))return;syncInputs(key);}
+function syncInputs(key){$(`[data-input="${key}"]`).value=state.p[key];$(`[data-range="${key}"]`).value=state.p[key]}
+function replaceRun(p,redrawLookup=false){try{const run=E.simulate(p);state.p=p;state.run=run;refresh();if(redrawLookup)drawLookup();updateUrl();return true}catch(e){toast(e.message);return false}}
+function renderKpi(){const end=state.run.rows.at(-1);const b=state.baseline.rows.at(-1);
+ const keys=[['Price','FINAL PRICE',end.Price,b.Price],['Capacity','FINAL CAPACITY',end.Capacity,b.Capacity],['Demand','FINAL DEMAND',end.Demand,b.Demand]];
+ $('#kpiRow').innerHTML=keys.map(([key,label,num,ref])=>`<div class="kpi"><span>${label}</span><b>${fmt(num,1)}</b><small>${num-ref>=0?'+':''}${fmt(num-ref,1)} vs. original</small></div>`).join('');}
+function drawCanvas(id,series,cursor=false){const canvas=$(id);if(!canvas)return;let width=canvas.getBoundingClientRect().width||500,height=canvas.getBoundingClientRect().height||220;if(width<10)return;
+ let dpr=window.devicePixelRatio||1;canvas.width=Math.floor(width*dpr);canvas.height=Math.floor(height*dpr);const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);
+ const left=53,right=15,top=18,bottom=28,pw=width-left-right,ph=height-top-bottom;
+ let all=series.flatMap(s=>s.rows.map(r=>r[s.key])).filter(Number.isFinite);if(!all.length)return;
+ let lo=Math.min(...all),hi=Math.max(...all);let pad=(hi-lo)||Math.max(1,Math.abs(hi)*.05);lo-=pad*.12;hi+=pad*.12;
+ const x=t=>left+(t/E.FINAL)*pw,y=v=>top+(hi-v)/(hi-lo)*ph;
+ ctx.font='10px Inter, Arial, sans-serif';ctx.strokeStyle=getCss('--chart-grid');ctx.lineWidth=1;ctx.fillStyle=getCss('--text-muted');
+ for(let i=0;i<=4;i++){let yy=top+ph*i/4;ctx.beginPath();ctx.moveTo(left,yy);ctx.lineTo(width-right,yy);ctx.stroke();ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(fmt(hi-(hi-lo)*i/4,1),left-8,yy)}
+ for(let i=0;i<=4;i++){let t=E.FINAL*i/4;let xx=x(t);ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(String(t),xx,height-bottom+8)}
+ for(const s of series){ctx.beginPath();ctx.strokeStyle=s.color;ctx.lineWidth=s.width||2;ctx.lineJoin='round';ctx.setLineDash(s.dash||[]);s.rows.forEach((r,i)=>{let xx=x(r.t),yy=y(r[s.key]);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy)});ctx.stroke();ctx.setLineDash([])}
+ if(cursor){let t=state.time,xx=x(t);ctx.strokeStyle=getCss('--accent');ctx.globalAlpha=.35;ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(xx,top);ctx.lineTo(xx,top+ph);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
+ const v=E.at(state.run,t)[state.metric];ctx.fillStyle=getCss('--surface');ctx.strokeStyle=getCss('--accent');ctx.lineWidth=2;ctx.beginPath();ctx.arc(xx,y(v),3.8,0,Math.PI*2);ctx.fill();ctx.stroke()}
+ return{x,y,left,right,top,bottom,pw,ph,width,height};
+}
+function renderPlots(){const key=state.metric;let series=[{rows:state.baseline.rows,key,color:getCss('--muted-ink'),dash:[6,5],width:1.7}];state.pins.forEach((p,i)=>series.push({rows:p.run.rows,key,color:['#8b5fbf','#2f855a','#c67a2b'][i],dash:[4,3],width:1.8}));series.push({rows:state.run.rows,key,color:getCss('--accent'),width:2.8});state.layout=drawCanvas('#pricePlot',series,true);
+ drawCanvas('#relatedPlot',['Demand','Supply','Desired Supply'].map((key,i)=>({rows:state.run.rows,key,color:['#1f77b4','#2f855a','#8b5fbf'][i],width:1.9})))}
+function renderTime(){const r=E.at(state.run,state.time);$('#timeReadout').textContent=fmt(state.time,2)+' mo';$('#timeValues').innerHTML=[['Price',r.Price],['Capacity',r.Capacity],['Demand / Supply',r['Demand To Supply Ratio']]].map(([k,v])=>`<div>${escapeHTML(k)}<b>${fmt(v,2)}</b></div>`).join('');$('#timeSlider').value=state.time;renderInspector()}
+function renderWarnings(){const w=state.run.warnings,items=[];if(w.lookupOutside)items.push(`Lookup evaluated outside its original point range in ${w.lookupOutside} of ${state.run.rows.length} saved time steps; endpoint values were held.`);if(w.negativeDemand)items.push(`Demand becomes negative for ${w.negativeDemand} saved time steps. The source model contains no floor at zero.`);$('#modelWarnings').hidden=!items.length;$('#modelWarnings').textContent=items.join(' ')}
+function refresh(){renderKpi();renderTime();renderPlots();renderWarnings();renderScenario();makeDiagram();}
+function drawLookup(){const svg=$('#lookupGraph'),pts=state.p.lookup;
+ const L=48,R=622,T=24,B=220,X=x=>L+(x-.1)/1.9*(R-L),Y=y=>B-(y+1)/2.5*(B-T);
+ let lines='';for(let i=0;i<=5;i++){let y=-1+i*.5,yy=Y(y);lines+=`<line x1="${L}" y1="${yy}" x2="${R}" y2="${yy}" stroke="var(--chart-grid)"/><text x="${L-10}" y="${yy+4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${fmt(y,1)}</text>`}for(const x of [.1,.5,1,1.5,2]){let xx=X(x);lines+=`<line x1="${xx}" y1="${T}" x2="${xx}" y2="${B}" stroke="var(--chart-grid)"/><text x="${xx}" y="${B+18}" font-size="11" text-anchor="middle" fill="var(--text-muted)">${x}</text>`}
+ svg.innerHTML=lines+`<line x1="${L}" y1="${Y(0)}" x2="${R}" y2="${Y(0)}" stroke="var(--text-muted)" stroke-width="1.1"/>`+`<path class="curve" d="${pts.map((a,i)=>(i?'L':'M')+X(a[0])+' '+Y(a[1])).join(' ')}" fill="none" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round"/>`+pts.map((p,i)=>`<circle class="lookup-dot" data-pt="${i}" cx="${X(p[0])}" cy="${Y(p[1])}" r="8.5" stroke="var(--accent)" stroke-width="2.5" fill="var(--surface)"/>`).join('')+`<text x="${R}" y="262" font-size="10" text-anchor="end" fill="var(--text-muted)">Demand / Supply Ratio →</text>`;
+ $('#lookupInputs').innerHTML=pts.map((p,i)=>`<label>x = ${fmt(p[0],1)}<input aria-label="F lookup output at x=${p[0]}" type="number" min="-1" max="1.5" step=".05" data-ptinput="${i}" value="${p[1]}"></label>`).join('');
+ $$('[data-ptinput]').forEach(n=>n.addEventListener('change',()=>{let y=Number(n.value);if(n.value.trim()===''||!Number.isFinite(y)||y< -1||y>1.5){n.value=state.p.lookup[Number(n.dataset.ptinput)][1];toast('Lookup ordinate must be between −1 and 1.5.');return}setLookup(Number(n.dataset.ptinput),y)}));
+ let index=null;svg.onpointerdown=e=>{const point=e.target.closest('[data-pt]');if(!point)return;index=Number(point.dataset.pt);svg.setPointerCapture(e.pointerId);e.preventDefault()};svg.onpointermove=e=>{if(index===null)return;const m=svg.getScreenCTM();if(!m)return;const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const local=pt.matrixTransform(m.inverse());let y=clamp((B-local.y)/(B-T)*2.5-1,-1,1.5);setLookup(index,Math.round(y*100)/100,true);};svg.onpointerup=svg.onpointercancel=()=>{index=null};
+}
+function setLookup(i,y,drag=false){let points=state.p.lookup.map(a=>a.slice());points[i][1]=y;if(!replaceRun({...state.p,lookup:points}))return;
+ if(drag){const L=48,R=622,T=24,B=220,X=x=>L+(x-.1)/1.9*(R-L),Y=y=>B-(y+1)/2.5*(B-T);let svg=$('#lookupGraph');svg.querySelector('.curve')?.setAttribute('d',points.map((a,j)=>(j?'L':'M')+X(a[0])+' '+Y(a[1])).join(' '));svg.querySelector(`[data-pt="${i}"]`)?.setAttribute('cy',Y(y));$(`[data-ptinput="${i}"]`).value=y;}
+ else drawLookup();}
+const pinColors=['#8b5fbf','#2f855a','#c67a2b'];
+function renderScenario(){let html='<div class="scenario-row"><i class="scenario-dot" style="background:var(--muted-ink)"></i><div class="scenario-label"><strong>Original model</strong><small>Unmodified source parameters</small></div><span class="info-tag">BASELINE</span></div>';
+ state.pins.forEach((r,i)=>html+=`<div class="scenario-row"><i class="scenario-dot" style="background:${pinColors[i]}"></i><div class="scenario-label"><strong>${escapeHTML(r.name)}</strong><small>Final price: ${fmt(r.run.rows.at(-1).Price,2)} · Final capacity: ${fmt(r.run.rows.at(-1).Capacity,1)}</small></div><button class="scenario-remove" type="button" data-remove="${i}">Remove ×</button></div>`);
+ if(!state.pins.length)html+='<p class="controls-note" style="margin:0;border:0">No saved scenarios yet. Adjust parameters, then pin the current run.</p>';
+ $('#scenarioRows').innerHTML=html;$$('[data-remove]').forEach(n=>n.onclick=()=>{state.pins.splice(Number(n.dataset.remove),1);renderScenario();renderPlots()})}
+function saveRun(){if(state.pins.length>=3){toast('Maximum three saved scenarios for visual clarity.');return}let i=state.pins.length+1;state.pins.push({name:'Scenario '+i,p:E.clone(state.p),run:E.simulate(state.p)});renderScenario();renderPlots();toast('Scenario '+i+' pinned to the chart.')}
+function exportCsv(){let keys=Object.keys(state.run.rows[0]);const rows=[keys.join(',')].concat(state.run.rows.map(r=>keys.map(k=>String(r[k])).join(',')));const blob=new Blob([rows.join('\r\n')],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='demand-supply-delay-current-run.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),2500)}
+function updateUrl(){try{const payload=encodeURIComponent(JSON.stringify({p:state.p}));history.replaceState(null,'',location.pathname+location.search+'#config='+payload)}catch{}}
+function readUrl(){try{let h=location.hash;if(!h.startsWith('#config='))return;const c=JSON.parse(decodeURIComponent(h.slice(8)));if(c&&c.p){state.run=E.simulate(c.p);state.p=state.run.params}}catch{}}
+function reset(){state.p=E.clone(E.DEFAULTS);state.run=E.simulate(state.p);state.time=20;renderControls();drawLookup();refresh();updateUrl();toast('Parameters and original stock values restored.')}
+function init(){loadTheme();readUrl();renderControls();makeDiagram();drawLookup();refresh();
+ $('#themeToggle').onclick=setTheme;$('#resetParams').onclick=reset;$('#diagramReset').onclick=()=>{state.selected='Price';state.all=true;$('#showAll').checked=true;select('Price');toast('Diagram focus reset.')};$('#showAll').onchange=e=>{state.all=e.target.checked;select(state.selected)};
+ $('#resetLookup').onclick=()=>{replaceRun({...state.p,lookup:E.clone(E.LOOKUP)},true);toast('Lookup restored.')};
+ $('#primaryVariable').onchange=e=>{state.metric=e.target.value;renderPlots()};$('#timeSlider').oninput=e=>{state.time=Number(e.target.value);renderTime();renderPlots()};
+ $('#saveRun').onclick=saveRun;$('#exportCsv').onclick=exportCsv;$('#shareLink').onclick=()=>{updateUrl();if(location.protocol==='file:'){toast('Configuration links can be shared after deployment to GitHub Pages.');return}navigator.clipboard?.writeText(location.href).then(()=>toast('Configuration URL copied.')).catch(()=>toast('Copy the URL from the address bar.'))};
+ let w;window.addEventListener('resize',()=>{clearTimeout(w);w=setTimeout(()=>{renderPlots();makeDiagram()},80)});
+ $('#pricePlot').addEventListener('pointermove',e=>{if(!state.layout)return;const l=state.layout;let rect=e.currentTarget.getBoundingClientRect();let px=e.clientX-rect.left;if(px<l.left||px>l.width-l.right){$('#chartTooltip').hidden=true;return}let t=clamp(Math.round(((px-l.left)/l.pw)*E.FINAL/E.DT)*E.DT,0,E.FINAL);state.time=t;renderTime();renderPlots();let tip=$('#chartTooltip');tip.hidden=false;tip.textContent=`Month ${fmt(t,2)}  ·  ${state.metric}: ${fmt(E.at(state.run,t)[state.metric],3)}`;tip.style.left=clamp(px,75,l.width-75)+'px';tip.style.top=Math.max(10,e.clientY-rect.top-36)+'px'});$('#pricePlot').onpointerleave=()=>$('#chartTooltip').hidden=true;
+ window.addEventListener('hashchange',()=>{readUrl();renderControls();drawLookup();refresh()});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+</script>
+</body></html>

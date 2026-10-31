@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="#ffffff" name="theme-color"/>
+<meta content="Explore price, demand and supply adjustment with interactive system dynamics, nonlinear lookup editing, and live simulation charts. System Dynamics Lab by Farhad Mehrabi." name="description"/>
+<meta content="System Dynamics Lab — Demand, Supply &amp; Delay" property="og:title"/><meta content="A transparent, browser-based system dynamics lab by Farhad Mehrabi." property="og:description"/><meta content="website" property="og:type"/>
+<title>System Dynamics Lab | Demand, Supply &amp; Delay</title>
+<link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyNzhjYTgiLz48cGF0aCBkPSJNMTIgNDJDMjIgNDIgMjIgMTkgMzIgMTlTNDMgNDIgNTIgNDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSIxOSIgcj0iNCIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" rel="icon" type="image/svg+xml"/>
+<link rel="stylesheet" href="../../shared/style.css"></head>
+<body>
+<header class="topnav" id="topnav"><div class="nav-inner">
+<a aria-label="System Dynamics Lab home" class="brand" href="../../index.html"><span class="brand-icon">S<span>∿</span></span><span class="brand-text">SYSTEM DYNAMICS <b>LAB</b><small>AN INTERACTIVE MODEL WORKSPACE</small></span></a>
+<nav aria-label="Site navigation" class="toplinks"><a href="../../index.html">Model Library</a><a class="navactive" href="#workspace">Workspace</a><a href="#parameters">Parameters</a><a href="#lookup">Lookup F</a><a href="#experiments">Scenarios</a></nav>
+<div class="topactions"><a class="small-btn" href="./source.mdl" download>↓ Source MDL</a><button aria-label="Switch light and dark mode" class="theme-button" id="themeToggle" type="button">◐ <span>Theme</span></button></div>
+</div></header>
+<main class="site-main" id="top">
+<section class="headline"><div class="headline-left"><div class="eyebrow"><span class="eyebrow-square"></span> SYSTEM DYNAMICS / INTERACTIVE MODEL 01</div><h1>Demand, Supply <em>&amp; Adjustment Delay</em></h1><p>Change model parameters. Examine feedback structure. Observe how price and supply capacity respond in real time.</p></div><div class="headline-meta"><span class="status"><i></i> LIVE SIMULATION</span><span>0–20 MONTHS</span><span>Δt 0.125 · EULER</span></div></section>
+<section class="workspace" id="workspace">
+<div class="left-column">
+<article class="panel diagram-panel"><div class="panel-head"><div><div class="section-index">01 / SYSTEM STRUCTURE</div><h2>Interactive stock–flow diagram</h2><p>Select any variable to inspect its equation. Colored solid arrows represent flows; thin arrows indicate dependencies.</p></div><button class="small-btn" id="diagramReset" type="button">↗ Fit</button></div>
+<div class="diagram-canvas"><svg aria-label="Modern stock-and-flow diagram showing price feedback and capacity adjustment" id="structureDiagram" role="group" viewBox="0 0 1120 650"></svg></div>
+<div class="diagram-footer"><div class="legend"><span><i class="legend-stock"></i> Stock</span><span><i class="legend-flow"></i> Flow</span><span><i class="legend-depend"></i> Influence</span><span><i class="legend-constant"></i> Editable parameter</span></div><label class="switchline"><input checked="" id="showAll" type="checkbox"/> All causal links</label></div>
+</article>
+<article class="panel inspect-panel"><div class="inspect-title"><div class="section-index">SELECTED VARIABLE / EQUATION INSPECTOR</div><span class="info-tag" id="inspectType">STOCK</span></div><div id="inspector"></div></article>
+<article class="panel edit-panel" id="parameters"><div class="panel-head"><div><div class="section-index">02 / CONTROLLED EXPERIMENT</div><h2>Edit model parameters</h2><p>Only original constants and stock initial values are editable. Other model equations are read-only.</p></div><button class="small-btn" id="resetParams" type="button">↺ Reset</button></div>
+<div class="param-group-title">MODEL CONSTANTS <span>03</span></div><div class="control-list" id="constControls"></div>
+<div class="param-group-title lower-title">INITIAL CONDITIONS <span>02</span></div><div class="control-list" id="stockControls"></div>
+<p class="controls-note"><b>Fixed by source:</b> demand intercept = 1000, model equations, time step and simulation horizon. <b>F</b> is a lookup function and is edited separately below.</p>
+</article>
+<article class="panel lookup-panel" id="lookup"><div class="panel-head"><div><div class="section-index">03 / NONLINEAR RESPONSE</div><h2>Lookup function F</h2><p>Drag points vertically or enter values below. The primary chart responds immediately.</p></div><button class="small-btn" id="resetLookup" type="button">↺ Reset F</button></div><div class="lookup-inner"><svg aria-label="Editable linear lookup function graph" id="lookupGraph" role="group" viewbox="0 0 660 270"></svg><div class="lookup-controls" id="lookupInputs"></div></div><p class="controls-note">Original x coordinates are fixed (0.1, 0.5, 1, 1.5, 2). Piecewise linear interpolation; inputs outside the domain hold the nearest endpoint value.</p></article>
+<article class="panel scenarios-panel" id="experiments"><div class="panel-head"><div><div class="section-index">04 / RUN COMPARISON</div><h2>Save &amp; compare scenarios</h2><p>Pin runs to compare behavior with the unchanged reference.</p></div></div><div class="scenario-actions"><button class="primary-btn" id="saveRun" type="button">+ Pin current run</button><button class="small-btn" id="exportCsv" type="button">↓ Export CSV</button><button class="small-btn" id="shareLink" type="button">↗ Copy link</button></div><div class="scenario-rows" id="scenarioRows"></div></article>
+</div>
+<aside aria-label="Real-time simulation results" class="results-column"><div class="chart-sticky"><article class="panel result-panel"><div class="results-heading"><div class="section-index"><span class="live-dot"></span> LIVE OUTPUT / UPDATES ON INPUT</div><h2>See the system respond</h2><p>Charts remain visible while parameters are adjusted.</p></div>
+<div class="kpis" id="kpiRow"></div>
+<div class="chart-caption"><div><strong>Behavior over time</strong><span>Current run vs. original reference</span></div><select aria-label="Primary chart variable" id="primaryVariable"><option>Price</option><option>Capacity</option><option>Demand</option><option>Supply</option><option>Desired Supply</option><option>Change in Price</option><option>Change in Capacity</option><option>Demand To Supply Ratio</option><option>Effect</option></select></div>
+<div class="plot-wrap"><canvas aria-label="Time series simulation chart" id="pricePlot" role="img"></canvas><div class="plot-tooltip" hidden="" id="chartTooltip"></div></div>
+<div class="chart-key"><span><i class="curr"></i>Current</span><span><i class="base"></i>Original</span><span><i class="saved"></i>Pinned runs</span></div>
+<div class="time-inspector"><div class="time-top"><label for="timeSlider">INSPECT TIME</label><output id="timeReadout">20.00 mo</output></div><input id="timeSlider" max="20" min="0" step=".125" type="range" value="20"/><div class="time-values" id="timeValues"></div></div>
+<div class="secondary-heading"><strong>Connected dynamics</strong><span>Supply, demand &amp; desired capacity</span></div><div class="small-plot"><canvas aria-label="Comparison chart for supply demand and desired supply" id="relatedPlot" role="img"></canvas></div><div class="related-legend"><span><i style="background:#278ca8"></i>Demand</span><span><i style="background:#c68b54"></i>Supply</span><span><i style="background:#8b75b8"></i>Desired supply</span></div>
+<div class="model-warnings" hidden="" id="modelWarnings"></div>
+</article></div></aside>
+</section>
+
+<footer><span>© 2026 Farhad Mehrabi · System Dynamics Lab</span><span>Source-grounded prototype · Validate against Vensim before research use</span></footer>
+</main>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+
+
+<script defer src="./engine.js"></script><script defer src="./app.js"></script></body></html>

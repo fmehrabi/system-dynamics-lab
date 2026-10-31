@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "demand-supply-delay",
+  "title": "Demand, Supply & Adjustment Delay",
+  "shortTitle": "Demand, Supply & Delay",
+  "description": "Explore how price, demand, supply capacity and adjustment delay interact through a nonlinear lookup function. Change the permitted parameters and initial stock values, edit lookup ordinates, and compare simulation scenarios.",
+  "category": "Market Dynamics",
+  "status": "available",
+  "version": "1.0.0",
+  "order": 1,
+  "page": "./models/demand-supply-delay/",
+  "sourceFile": "source.mdl",
+  "simulation": {
+    "initialTime": 0,
+    "finalTime": 20,
+    "timeStep": 0.125,
+    "integration": "Euler"
+  },
+  "tags": [
+    "Vensim",
+    "Stock and Flow",
+    "Lookup Function",
+    "Supply and Demand",
+    "Delay",
+    "Feedback"
+  ],
+  "notes": "Browser implementation transcribed from the supplied Vensim source. Numerical results should be compared with Vensim before research use.",
+  "validation": {
+    "status": "transcribed-not-cross-validated",
+    "vensimComparison": false,
+    "notes": "Browser engine transcribed from the provided equations. Point-by-point comparison with native Vensim output remains pending."
+  }
+}

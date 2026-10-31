@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const E=require('../models/demand-supply-delay/engine.js');
+let r=E.simulate();assert.equal(r.rows.length,161);
+assert.equal(r.rows[0].Price,5);assert.equal(r.rows[0].Capacity,100);
+assert.equal(r.rows[0].Demand,950);assert.equal(r.rows[0].Supply,100);
+assert.equal(r.rows[0]['Desired Supply'],150);assert.equal(r.rows[0]['Demand To Supply Ratio'],9.5);
+assert.equal(r.rows[0].Effect,1);assert.equal(r.rows[0]['Change in Capacity'],25);assert.equal(r.rows[0]['Change in Price'],5);
+assert.equal(r.rows[1].Price,5.625);assert.equal(r.rows[1].Capacity,103.125);
+assert.equal(E.lookup(.1,E.LOOKUP),-.5);assert.equal(E.lookup(.5,E.LOOKUP),-.4);assert.equal(E.lookup(1,E.LOOKUP),0);assert.equal(E.lookup(1.25,E.LOOKUP),.35);assert.equal(E.lookup(-30,E.LOOKUP),-.5);assert.equal(E.lookup(500,E.LOOKUP),1);
+assert.equal(E.theoreticalEquilibrium(E.DEFAULTS).price,25);
+assert.equal(E.theoreticalEquilibrium(E.DEFAULTS).capacity,750);
+let r2=E.simulate({supplySlope:45,delay:5});assert.notEqual(r2.rows.at(-1).Capacity,r.rows.at(-1).Capacity);
+let r3=E.simulate({lookup:[[.1,-.5],[.5,-.4],[1,.3],[1.5,.7],[2,1]]});assert.notEqual(r3.rows.at(-1).Price,r.rows.at(-1).Price);
+assert.throws(()=>E.simulate({delay:0}));assert.throws(()=>E.simulate({initialCapacity:0}));
+console.log('PASS: source conditions, Euler, lookup, defaults, parameter changes, validation.');
