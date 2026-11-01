@@ -15,5 +15,3 @@ Designed for educational and research-oriented exploration, System Dynamics Lab 
 - Adjustable model parameters
 - Lookup functions and scenario analysis
 - An expandable library of independent models
-
-**Explore. Simulate. Understand.**
